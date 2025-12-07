@@ -27,11 +27,14 @@ const LandingFooter = () => {
   const footerHeightClass = is625HeightPage ? "h-[px]" : "h-[px]";
 
   return (
-    <footer className="relative">
+    <footer
+      className={`${pathname === "/admin" || pathname.includes("/admin/") ? "hidden" : "block"} relative`}
+    >
       <div
         className={`${
           pathname === "/faq" ||
           pathname === "/admin" ||
+          pathname.includes("/admin/") ||
           pathname.includes("/scan/") ||
           pathname === "/scan" ||
           pathname === "/squeeze" ||
@@ -106,6 +109,8 @@ const LandingFooter = () => {
         className={`bg-[#0A0A0B] ${footerHeightClass} ${
           pathname === "/faq" ||
           pathname === "/admin" ||
+          pathname.includes("/admin/") ||
+          pathname.includes("/scan/") ||
           pathname === "/scan" ||
           pathname === "/about" ||
           pathname === "/squeeze" ||

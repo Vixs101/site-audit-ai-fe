@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const NavLink = ({
   href,
@@ -15,6 +16,7 @@ const NavLink = ({
   mobile: boolean;
   pathname: string;
 }) => {
+  const routePathname = usePathname();
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (onClick) {
       onClick();
@@ -36,7 +38,7 @@ const NavLink = ({
   return (
     <Link
       href={href}
-      className={`${pathname === href ? "text-[#FF5A3D]" : "text-[#1C1C1C]"} font-medium ${mobile ? "transition-colors" : pathname === href ? "hover:text-[#1C1C1C] text-lg" : "hover:text-[#FF5A3D] text-lg"}`}
+      className={`${pathname === href ? "text-[#FF5A3D]" : "text-[#1C1C1C]"} font-medium ${mobile ? "transition-colors" : pathname === href ? "hover:text-[#1C1C1C] text-lg" : "hover:text-[#FF5A3D] text-lg"} ${routePathname === "/admin" || routePathname.startsWith("/admin/") ? "hidden" : "block"}`}
       onClick={handleClick}
     >
       {label}

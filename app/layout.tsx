@@ -48,6 +48,7 @@ export const metadata: Metadata = {
 };
 
 import { Toaster } from "@/components/ui/sonner";
+import { AdminAuthProvider } from "@/contexts/admin-auth-context";
 
 export default function RootLayout({
   children,
@@ -59,10 +60,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${rethinkSans.variable} antialiased`}
       >
-        <Header />
-        {children}
-        <WaitlistFooter />
-        <Toaster />
+        <AdminAuthProvider>
+          <Header />
+          {children}
+          <WaitlistFooter />
+          <Toaster />
+        </AdminAuthProvider>
       </body>
     </html>
   );

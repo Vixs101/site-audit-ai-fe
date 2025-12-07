@@ -35,13 +35,13 @@ const WaitlistHeader = () => {
 
   return (
     <header
-      className="
-    max-w-[1440px] mx-auto font-sans font-medium 
+      className={`${pathname.includes("/admin/") || pathname === "/admin" ? "" : "max-w-[1440px]"}
+     mx-auto font-sans font-medium 
     bg-white sticky top-0 z-50
     flex items-center justify-between
     px-4 sm:px-8 md:px-12 h-16 sm:h-20
     border-b border-[#EDEDED]
-  "
+  `}
     >
       <Link href="/" onClick={() => setIsOpen(false)} className="z-100">
         <Image

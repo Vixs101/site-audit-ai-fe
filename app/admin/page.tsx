@@ -6,18 +6,13 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
-  Globe,
   Users,
   ScanLine,
   Mail,
   TrendingUp,
-  TrendingDown,
   ArrowUpRight,
-  Search,
-  Bell,
   MoreHorizontal,
   Download,
-  Filter,
   ChevronDown,
   Activity,
   Clock,
@@ -27,7 +22,6 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { StatCard } from "@/components/admin/statCard";
-import { useAnimatedCounter } from "@/components/admin/statCard";
 import { MiniBarChart } from "@/components/admin/miniBarChart";
 import { weeklyData } from "@/components/admin/miniBarChart";
 
@@ -355,6 +349,14 @@ export default function AdminDashboard() {
                   Latest website audits
                 </p>
               </div>
+              <div className="flex items-center gap-2">
+                <Link
+                  href="/admin/scans"
+                  className="text-[#FF5A3D] text-sm hover:underline font-medium flex items-center gap-1"
+                >
+                  View All <ArrowUpRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
             <div className="divide-y divide-border">
               {recentScans.map((scan, i) => (
@@ -413,6 +415,14 @@ export default function AdminDashboard() {
                   New email captures
                 </p>
               </div>
+              <div className="flex items-center gap-2">
+                <Link
+                  href="/admin/leads"
+                  className="text-[#FF5A3D] text-sm hover:underline font-medium flex items-center gap-1"
+                >
+                  View All <ArrowUpRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
             <div className="divide-y divide-border">
               {recentLeads.map((lead, i) => (
@@ -424,7 +434,7 @@ export default function AdminDashboard() {
                     animationFillMode: "both",
                   }}
                 >
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#FF5A3D]/20 to-[#FF5A3D]/5 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-linear-to-br from-[#FF5A3D]/20 to-[#FF5A3D]/5 flex items-center justify-center">
                     <Mail className="w-4 h-4 text-[#FF5A3D]" />
                   </div>
                   <div className="flex-1 min-w-0">
